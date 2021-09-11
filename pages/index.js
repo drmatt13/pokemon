@@ -12,10 +12,10 @@ export default function Home() {
 
   return <div className="min-h-screen bg-white dark:bg-gradient-to-tl dark:from-blue-400 dark:via-purple-600 dark:to-gray-600">
     <div className="max-w-full mb-5 flex justify-between bg-gradient-to-r from-yellow-400 via-red-500 to-pink-500 dark:from-blue-600 dark:via-purple-600 dark:to-gray-600">
-      <div className="ml-5 sm:ml-10 flex justify-center items-center text-7xl sm:text-8xl">
+      <div className="select-none ml-5 sm:ml-10 flex justify-center items-center text-7xl sm:text-8xl">
         <i className="devicon-nextjs-plain-wordmark colored cursor-pointer" />
       </div>
-      <div className="mr-5 sm:mr-10 flex justify-center items-center text-sm sm:text-xl">
+      <div className="select-none mr-5 sm:mr-10 flex justify-center items-center text-sm sm:text-xl">
         <div className="bg-white dark:bg-gray-300 rounded-full shadow-2xl cursor-pointer ring-1 ring-gray-100 hover:ring-green-400 dark:ring-gray-300 dark:hover:ring-green-400 hover:bg-green-400 dark:hover:bg-green-400  transition duration-100 ease-in-out">
           <i className="fas fa-shopping-cart p-3" />
         </div>
@@ -40,7 +40,7 @@ export default function Home() {
     <div className="container px-5 sm:px-0">
       <div 
         onClick={toggleDarkMode} 
-        className="cursor-pointer h-8 w-16 rounded-full shadow-md ring-2 ring-gray-200 dark:ring-gray-400  bg-gradient-to-tr from-white to-gray-100 dark:from-gray-200 dark:to-gray-400 transition duration-150"
+        className="cursor-pointer select-none h-8 w-16 rounded-full shadow-md ring-2 ring-gray-200 dark:ring-gray-400  bg-gradient-to-tr from-white to-gray-100 dark:from-gray-200 dark:to-gray-400 transition duration-150"
       >
         <div className={`h-8 w-8 p-1 transition-all duration-150 ease-in-out dark:ml-8`}>
           <div className="h-full rounded-full bg-gradient-to-r from-yellow-400 via-red-500 to-pink-500 dark:from-purple-400 dark:to-pink-500" />
