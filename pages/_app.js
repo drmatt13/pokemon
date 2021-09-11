@@ -26,7 +26,7 @@ function MyApp({ Component, pageProps }) {
       <meta property="og:site_name" content="Next.js-tailwind" />
       <meta property="og:title" content="og:title" />
       <meta property="og:description" content="og:description" />
-      <meta property="og:image" content="/og-image.jpeg" />
+      <meta property="og:image" content="/og-image.jpg" />
     </Head>
     <Component {...pageProps} />
   </>
