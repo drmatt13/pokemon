@@ -45,7 +45,7 @@ export default function Home() {
         </div>
       </div>
     </div>
-    <div className="container px-5 sm:px-0">
+    <div className="container px-5 md:px-0">
       <div 
         onClick={toggleDarkMode} 
         className="cursor-pointer select-none h-8 w-16 mb-5 rounded-full shadow-md ring-2 ring-gray-200 dark:ring-gray-400  bg-gradient-to-tr from-white to-gray-100 dark:from-gray-200 dark:to-gray-400"
