@@ -24,7 +24,7 @@ export default function Home() {
       </div>
       <div className="select-none mr-5 sm:mr-10 flex justify-center items-center text-sm sm:text-xl">
         <div className="relative h-10 w-10 flex justify-center items-center bg-white dark:text-gray-200 dark:hover:text-black dark:bg-gray-800 rounded-full shadow-2xl cursor-pointer ring-1 ring-gray-100 hover:ring-green-400 dark:ring-gray-800 dark:hover:ring-green-400 hover:bg-green-400 dark:hover:bg-green-400">
-          <div className="absolute top-0 right-0 h-5 w-5 flex justify-center items-center text-sm text-white bg-red-500 border border-opacity-50 dark:border-opacity-100 border-red-700 dark:border-gray-600 rounded-full animate-cart-bounce">2</div>
+          <div className="absolute top-0 right-0 h-5 w-5 flex justify-center items-center text-sm text-white bg-black dark:bg-red-500 border border-opacity-50 dark:border-opacity-100 border-gray-600 dark:border-gray-600 rounded-full animate-cart-bounce">2</div>
           <i className="fas fa-shopping-cart" />
         </div>
       </div>
