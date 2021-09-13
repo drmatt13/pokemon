@@ -32,16 +32,16 @@ export default function Home() {
     <div className="container mb-5 py-5 pl-5 bg-gradient-to-r from-white via-pink-100 to-pink-200 dark:from-gray-200 dark:via-purple-300 dark:to-purple-500 sm:rounded-2xl">
       <div className="text-5xl sm:text-7xl max-w-min flex items-center">
         <div className="animate-pulse flex">
-          <i className="devicon-nodejs-plain colored"/>
+          <i className="devicon-nodejs-plain colored" />
         </div>
         <div className="animate-spin-slow flex ml-5">
-          <i className="devicon-react-original colored"/>
+          <i className="devicon-react-original colored" />
         </div>
         <div className="animate-ping flex ml-9 text-3xl sm:text-4xl">
-          <i className="devicon-redux-original colored"/>
+          <i className="devicon-redux-original colored" />
         </div>
         <div className="animate-bounce flex ml-9">
-          <i className="devicon-tailwindcss-plain colored"/>
+          <i className="devicon-tailwindcss-plain colored" />
         </div>
       </div>
     </div>
