@@ -12,15 +12,17 @@ import styles from '../styles/styles.module.scss'
 
 export default function Home({ env }) {
 
-  const { mobile } = useContext(_appContext)
+  const { mobile, setDarkMode } = useContext(_appContext)
 
   const toggleDarkMode = () => {
     if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
       document.documentElement.classList.remove('dark')
       localStorage.theme = 'light'
+      setDarkMode(false)
     } else {
       document.documentElement.classList.add('dark')
       localStorage.theme = 'dark'
+      setDarkMode(true)
     }
   }
 
