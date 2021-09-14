@@ -13,7 +13,7 @@ export default function Home({ data }) {
 
   return <div className="min-h-screen text-center bg-gradient-to-tl from-white via-red-200 to-pink-100 dark:from-blue-400 dark:via-purple-600 dark:to-gray-600">
     <Navbar />
-    <div className="inline-block my-14 relative max-w-md content-center bg-gradient-to-r from-white via-pink-100 to-pink-200 dark:from-gray-200 dark:via-purple-300 dark:to-purple-500 sm:rounded-2xl">
+    <div className="inline-block my-14 relative w-5/6 sm:max-w-md lg:max-w-xl content-center bg-gradient-to-r from-white via-pink-100 to-pink-200 dark:from-gray-200 dark:via-purple-300 dark:to-purple-500 rounded-2xl">
       <div className="absolute select-none top-0 left-0 h-7 w-7 -translate-x-3 -translate-y-2 flex justify-center items-center text-sm text-white bg-black dark:bg-red-500 border border-opacity-25 border-gray-600 rounded-full">{ data.id }</div>        
       <div className="p-4 float-left">
         <p className="text-lg text-left"><img className="float-left select-none shadow ring-1 ring-gray-400 ring-opacity-10 cursor-pointer rounded-xl mr-4 h-16 w-16" src={data.url} />{ data.title }</p>
