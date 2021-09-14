@@ -2,7 +2,7 @@ import Link from 'next/link'
 
 const Navbar = () => {
   return <>
-    <div className="max-w-full mb-5 flex justify-between bg-gradient-to-r from-yellow-400 via-red-500 to-pink-500 dark:from-blue-600 dark:via-purple-600 dark:to-gray-600">
+    <div className="max-w-full flex justify-between bg-gradient-to-r from-yellow-400 via-red-500 to-pink-500 dark:from-blue-600 dark:via-purple-600 dark:to-gray-600">
       <div className="select-none ml-5 sm:ml-10 flex justify-center items-center text-7xl sm:text-8xl">
         <Link href="/">
           <i className="devicon-nextjs-plain-wordmark colored cursor-pointer" />

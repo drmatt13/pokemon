@@ -5,7 +5,7 @@ module.exports = {
   theme: {
     extend: {
       animation: {
-        'cart-bounce': 'cart-bounce 8s linear infinite',
+        'cart-bounce': 'cart-bounce 7s linear infinite',
         'spin-slow': 'spin 5s linear infinite'
       },
       keyframes: {

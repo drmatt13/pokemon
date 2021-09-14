@@ -31,9 +31,9 @@ export default function Home({ env }) {
     )
   }, [])
 
-  return <div className="min-h-screen bg-white dark:bg-gradient-to-tl dark:from-blue-400 dark:via-purple-600 dark:to-gray-600">
+  return <div className="min-h-screen bg-gradient-to-tl from-white via-red-200 to-pink-100 dark:from-blue-400 dark:via-purple-600 dark:to-gray-600">
     <Navbar />
-    <div className="container mb-5 py-5 pl-5 bg-gradient-to-r from-white via-pink-100 to-pink-200 dark:from-gray-200 dark:via-purple-300 dark:to-purple-500 sm:rounded-2xl">
+    <div className="container my-5 py-5 pl-5 bg-gradient-to-r from-white via-pink-100 to-pink-200 dark:from-gray-200 dark:via-purple-300 dark:to-purple-500 sm:rounded-2xl">
       <div className="text-5xl sm:text-7xl max-w-min flex items-center">
         <div className="animate-pulse flex">
           <Link href="/1"><i className="cursor-pointer devicon-nodejs-plain colored" /></Link>

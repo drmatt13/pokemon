@@ -1,4 +1,3 @@
-import { useEffect } from 'react'
 import { useRouter } from 'next/router'
 
 // components
@@ -8,16 +7,18 @@ export default function Home({ data }) {
 
   const router = useRouter()
 
-  useEffect(() => {
-    console.log("data: ", data)
-  }, [data])
-
   if (router.isFallback) {
     return <div>Loading...</div>
   }
 
-  return <div className="min-h-screen bg-white dark:bg-gradient-to-tl dark:from-blue-400 dark:via-purple-600 dark:to-gray-600">
+  return <div className="min-h-screen text-center bg-gradient-to-tl from-white via-red-200 to-pink-100 dark:from-blue-400 dark:via-purple-600 dark:to-gray-600">
     <Navbar />
+    <div className="inline-block my-14 relative max-w-md content-center bg-gradient-to-r from-white via-pink-100 to-pink-200 dark:from-gray-200 dark:via-purple-300 dark:to-purple-500 sm:rounded-2xl">
+      <div className="absolute select-none top-0 left-0 h-7 w-7 -translate-x-3 -translate-y-2 flex justify-center items-center text-sm text-white bg-black dark:bg-red-500 border border-opacity-25 border-gray-600 rounded-full">{ data.id }</div>        
+      <div className="p-4 float-left">
+        <p className="text-lg text-left"><img className="float-left select-none shadow ring-1 ring-gray-400 ring-opacity-10 cursor-pointer rounded-xl mr-4 h-16 w-16" src={data.url} />{ data.title }</p>
+      </div>
+    </div>
   </div>
 }
 
@@ -36,7 +37,7 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params: { id } }) {
-  const res = await fetch(`https://jsonplaceholder.typicode.com/todos/${id}`)
+  const res = await fetch(`https://jsonplaceholder.typicode.com/photos/${id}`)
   const data = await res.json()
 
   // process.cwd() get DIR/ name at build time
