@@ -1,9 +1,6 @@
 import { useEffect, useContext } from 'react'
 import Link from 'next/link'
 
-// components
-import Navbar from '../components/Navbar'
-
 // context
 import _appContext from '../context/_appContext'
 
@@ -33,9 +30,8 @@ export default function Home({ env }) {
     )
   }, [])
 
-  return <div className="min-h-screen bg-gradient-to-tl from-white via-red-200 to-pink-100 dark:from-blue-400 dark:via-purple-600 dark:to-gray-600">
-    <Navbar />
-    <div className="container my-5 py-5 pl-5 bg-gradient-to-r from-white via-pink-100 to-pink-200 dark:from-gray-200 dark:via-purple-300 dark:to-purple-500 sm:rounded-2xl">
+  return <>
+    <div className="animate-fade-in container my-5 py-5 pl-5 bg-gradient-to-r from-white via-pink-100 to-pink-200 dark:from-gray-200 dark:via-purple-300 dark:to-purple-500 sm:rounded-2xl">
       <div className="text-5xl sm:text-7xl max-w-min flex items-center">
         <div className="animate-pulse flex">
           <Link href="/1"><i className="cursor-pointer devicon-nodejs-plain colored" /></Link>
@@ -51,7 +47,7 @@ export default function Home({ env }) {
         </div>
       </div>
     </div>
-    <div className="container px-5 md:px-0">
+    <div className="animate-fade-in container px-5 md:px-0">
       <div 
         onClick={toggleDarkMode} 
         className="cursor-pointer select-none h-8 w-16 mb-5 rounded-full shadow-md ring-2 ring-gray-200 dark:ring-gray-400  bg-gradient-to-tr from-white to-gray-100 dark:from-gray-200 dark:to-gray-400"
@@ -62,7 +58,7 @@ export default function Home({ env }) {
       </div>
       <div className="dark:text-white">mobile device: {mobile ? "true" : "false"}</div>
     </div>
-  </div>
+  </>
 }
 
 export async function getStaticProps(context) {

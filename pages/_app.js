@@ -1,6 +1,9 @@
 import { useState, useEffect } from 'react'
 import Head from 'next/head'
 
+// components
+import AppLayout from '../components/AppLayout'
+
 // context
 import _appContext from '../context/_appContext'
 
@@ -46,7 +49,9 @@ function MyApp({ Component, pageProps }) {
       <meta property="og:image" content="/og-image.jpg" />
     </Head>
     <_appContext.Provider value={{ mobile, setDarkMode }}>
-      <Component {...pageProps} />
+      <AppLayout>
+        <Component {...pageProps} />
+      </AppLayout>
     </_appContext.Provider>
   </>
 }
