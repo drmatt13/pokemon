@@ -1,9 +1,16 @@
-import { useContext } from 'react'
+import { useEffect, useContext } from 'react'
+import Link from 'next/link'
+
+// components
+import Navbar from '../components/Navbar'
 
 // context
 import _appContext from '../context/_appContext'
 
-export default function Home() {
+// styles
+import styles from '../styles/styles.module.scss'
+
+export default function Home({ env }) {
 
   const { mobile } = useContext(_appContext)
 
@@ -17,31 +24,28 @@ export default function Home() {
     }
   }
 
+  useEffect(() => {
+    console.log(
+      '\nprocess.env.password: ', env, 
+      '\nNEXT_PUBLIC_ANALYTICS_ID:', process.env.NEXT_PUBLIC_ANALYTICS_ID
+    )
+  }, [])
+
   return <div className="min-h-screen bg-white dark:bg-gradient-to-tl dark:from-blue-400 dark:via-purple-600 dark:to-gray-600">
-    <div className="max-w-full mb-5 flex justify-between bg-gradient-to-r from-yellow-400 via-red-500 to-pink-500 dark:from-blue-600 dark:via-purple-600 dark:to-gray-600">
-      <div className="select-none ml-5 sm:ml-10 flex justify-center items-center text-7xl sm:text-8xl">
-        <i className="devicon-nextjs-plain-wordmark colored cursor-pointer" />
-      </div>
-      <div className="select-none mr-5 sm:mr-10 flex justify-center items-center text-sm sm:text-xl">
-        <div className="relative h-10 w-10 flex justify-center items-center bg-white dark:text-gray-200 dark:hover:text-black dark:bg-gray-800 rounded-full shadow-2xl cursor-pointer ring-1 ring-gray-100 hover:ring-green-400 dark:ring-gray-800 dark:hover:ring-green-400 hover:bg-green-400 dark:hover:bg-green-400">
-          <div className="absolute top-0 right-0 h-5 w-5 flex justify-center items-center text-sm text-white bg-black dark:bg-red-500 border border-opacity-50 dark:border-opacity-100 border-gray-600 dark:border-gray-600 rounded-full animate-cart-bounce">2</div>
-          <i className="fas fa-shopping-cart" />
-        </div>
-      </div>
-    </div>
+    <Navbar />
     <div className="container mb-5 py-5 pl-5 bg-gradient-to-r from-white via-pink-100 to-pink-200 dark:from-gray-200 dark:via-purple-300 dark:to-purple-500 sm:rounded-2xl">
       <div className="text-5xl sm:text-7xl max-w-min flex items-center">
         <div className="animate-pulse flex">
-          <i className="devicon-nodejs-plain colored" />
+          <Link href="/1"><i className="cursor-pointer devicon-nodejs-plain colored" /></Link>
         </div>
         <div className="animate-spin-slow flex ml-5">
-          <i className="devicon-react-original colored" />
+          <Link href="/2"><i className="cursor-pointer devicon-react-original colored" /></Link>
         </div>
         <div className="animate-ping flex ml-9 text-3xl sm:text-4xl">
-          <i className="devicon-redux-original colored" />
+          <Link href="/3"><i className="cursor-pointer devicon-redux-original colored" /></Link>
         </div>
         <div className="animate-bounce flex ml-9">
-          <i className="devicon-tailwindcss-plain colored" />
+          <Link href="/4"><i className="cursor-pointer devicon-tailwindcss-plain colored" /></Link>
         </div>
       </div>
     </div>
@@ -57,4 +61,16 @@ export default function Home() {
       <div className="dark:text-white">mobile device: {mobile ? "true" : "false"}</div>
     </div>
   </div>
+}
+
+export async function getStaticProps(context) {
+
+  const env = process.env.DB_PASS
+
+  return {
+    props: {
+      env
+    }, // will be passed to the page component as props
+    // never revalidate
+  }
 }
