@@ -3,6 +3,14 @@ module.exports = {
   purge: ['./pages/**/*.{js,ts,jsx,tsx}', './components/**/*.{js,ts,jsx,tsx}'],
   darkMode: 'class', // or 'media' or 'class'
   theme: {
+    screens: {
+      'xs': '425px',
+      'sm': '640px',
+      'md': '768px',
+      'lg': '1024px',
+      'xl': '1280px',
+      '2xl': '1536px',
+    },
     extend: {
       animation: {
         'cart-bounce': 'cart-bounce 7s linear infinite',
@@ -28,9 +36,11 @@ module.exports = {
           '50%': { transform: 'rotate(3deg)' },
         }
       },
+      screens: {
+        'xs': '425px',
+      },
       container: {
         'center': true,
-        // 'padding': '2rem'
       }
     }
   },
