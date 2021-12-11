@@ -24,7 +24,12 @@ const PokemonCard = ({ data }) => {
           )}
         </div>
       </div>
-      <img className="rounded-md" src={data.images.small} alt={data.name} />
+      <img
+        className="rounded-md"
+        loading="lazy"
+        src={data.images.small}
+        alt={data.name}
+      />
       <input
         className="text-black w-12 p-1 rounded-md border-2 border-black absolute bottom-2 right-1 md:bottom-3 md:right-2"
         type="number"

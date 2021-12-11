@@ -1,4 +1,6 @@
 import { useContext, useState } from "react";
+import Head from "next/head";
+import Loading from "../components/Loading";
 import PokemonCard from "../components/PokemonCard";
 
 // context
@@ -27,10 +29,14 @@ export default function Home() {
     <></>
   ) : (
     <>
+      <Head>
+        <title>{search ? search : "Poké Search"}</title>
+      </Head>
       <div className="pb-16">
         <form onSubmit={formSubmit} className="text-center">
           <input
             className="border border-gray-300 mx-4 mt-8 mb-12 px-3 py-2"
+            disabled={loading}
             style={{
               minWidth: "200px",
               width: "50vw",
@@ -43,12 +49,15 @@ export default function Home() {
           />
           <input
             className="border bg-gray-300 border-gray-300 px-3 py-2 shadow-lg hover:bg-gray-200 hover:cursor-pointer"
+            disabled={loading}
             type="submit"
             value="Search"
           />
         </form>
         {loading ? (
-          <div>loading...</div>
+          <div className="text-center">
+            <Loading />
+          </div>
         ) : (
           <div className="px-8 lg:px-12 grid grid-cols-2 xs:grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 xl:grid-cols-7 2xl:grid-cols-8 gap-8">
             {data &&
