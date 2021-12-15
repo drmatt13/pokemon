@@ -1,0 +1,30 @@
+const x = 0;
+
+const user = {
+  _id: "",
+  email: "",
+  password: "",
+  collections: [
+    "collection1",
+    "collection2",
+    // ...
+  ],
+};
+
+// find cards by _user_id
+// find cards by _user_id, forSale
+// find cards by _user_id, forSale, collection
+
+// find cards by _user_id, favorite
+// find cards by _user_id, forSale, favorite
+// find cards by _user_id, forSale, collection, favorite
+
+const card = {
+  _id: "",
+  _user_id: "",
+  pokemonCard: "_poke_id",
+  qauntity: x,
+  forSale: x,
+  favorite: true,
+  collection: "collection",
+};

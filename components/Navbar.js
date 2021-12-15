@@ -11,8 +11,8 @@ const Navbar = () => {
   const router = useRouter();
 
   const signOut = () => {
-    Cookies.remove("bearer");
-    setUser(null);
+    Cookies.remove("token");
+    setUser(undefined);
     router.push("/login");
   };
 

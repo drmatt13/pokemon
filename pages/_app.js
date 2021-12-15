@@ -1,8 +1,7 @@
 import { useState, useEffect } from "react";
 import pokemon from "pokemontcgsdk";
 import Head from "next/head";
-
-// navbar
+import Loading from "../components/Loading";
 import Navbar from "../components/Navbar";
 
 // context
@@ -16,7 +15,7 @@ import "tailwindcss/tailwind.css";
 import "../styles/globals.scss";
 
 function MyApp({ Component, pageProps }) {
-  const [user, setUser] = useAuth();
+  const { user, setUser, loading } = useAuth();
 
   pokemon.configure({ apiKey: process.env.NEXT_PUBLIC_POKEMON_SECRET });
 
@@ -29,50 +28,15 @@ function MyApp({ Component, pageProps }) {
       : null
   );
 
-  const [darkMode, setDarkMode] = useState(false);
-
-  // set dark mode
-  const toggleDarkMode = () => {
-    if (
-      localStorage.theme === "dark" ||
-      (!("theme" in localStorage) &&
-        window.matchMedia("(prefers-color-scheme: dark)").matches)
-    ) {
-      document.documentElement.classList.remove("dark");
-      localStorage.theme = "light";
-      setDarkMode(false);
-    } else {
-      document.documentElement.classList.add("dark");
-      localStorage.theme = "dark";
-      setDarkMode(true);
-    }
-  };
-
-  // initialize dark mode with local storage
-  useEffect(() => {
-    if (
-      localStorage.theme === "dark" ||
-      (!("theme" in localStorage) &&
-        window.matchMedia("(prefers-color-scheme: dark)").matches)
-    ) {
-      document.documentElement.classList.add("dark");
-      localStorage.theme = "dark";
-      setDarkMode(true);
-    } else {
-      document.documentElement.classList.remove("dark");
-      localStorage.theme = "light";
-      setDarkMode(false);
-    }
-  }, []);
-
   return (
     <>
       <Head>
+        <title>Pokémon Card Manager</title>
         <meta
           name="viewport"
           content="width=device-width,initial-scale=1.0,user-scalable=no"
         />
-        <meta name="theme-color" content={darkMode ? "#7d54ed" : "#f33984"} />
+        <meta name="theme-color" content="#f33984" />
         {/* font awesome */}
         <link
           rel="stylesheet"
@@ -83,20 +47,24 @@ function MyApp({ Component, pageProps }) {
         />
       </Head>
 
-      <_appContext.Provider
-        value={{ user, setUser, pokemon, mobile, darkMode, toggleDarkMode }}
-      >
+      <_appContext.Provider value={{ user, setUser, pokemon, mobile }}>
         <div className="relative min-h-screen">
-          <div className="relative z-10">
-            {user && <Navbar />}
-            <Component {...pageProps} />
-          </div>
+          {loading ? (
+            <div className="relative z-10 h-screen w-screen flex justify-center items-center">
+              <Loading />
+            </div>
+          ) : (
+            <div className="relative z-10">
+              {user && <Navbar />}
+              <Component {...pageProps} />
+            </div>
+          )}
           <div
             className="fixed h-screen w-screen top-0 z-0"
             style={{
               backgroundImage: `url("AdobeStock_293831552_Editorial_Use_Only.jpeg")`,
               backgroundSize: "cover",
-              opacity: 0.2,
+              opacity: 0.1,
             }}
           />
         </div>
