@@ -15,6 +15,9 @@ import "tailwindcss/tailwind.css";
 import "../styles/globals.scss";
 
 function MyApp({ Component, pageProps }) {
+  // const [height] = useState(
+  //   Math.max(document.documentElement.clientHeight, window.innerHeight || 0)
+  // );
   const { user, setUser, loading } = useAuth();
   const [pokemonCards, setPokemonCards] = useState({
     // "poke-id": {
@@ -42,7 +45,7 @@ function MyApp({ Component, pageProps }) {
         <title>Pokémon Card Manager</title>
         <meta
           name="viewport"
-          content="width=device-width,initial-scale=1.0,user-scalable=no"
+          content="width=device-width,initial-scale=1.0,minimum-scale=1,maximum-scale=1,user-scalable=no"
         />
         <meta name="theme-color" content="#f33984" />
         {/* font awesome */}
@@ -65,6 +68,7 @@ function MyApp({ Component, pageProps }) {
           mobile,
         }}
       >
+        <style jsx>{``}</style>
         <div className="relative min-h-screen">
           {loading ? (
             <div className="relative z-10 h-screen w-screen flex justify-center items-center">
@@ -80,14 +84,14 @@ function MyApp({ Component, pageProps }) {
             className="fixed h-screen w-screen top-0 z-0"
             style={{
               backgroundImage: `url("AdobeStock_293831552_Editorial_Use_Only.jpeg")`,
-              position: "fixed",
+              backgroundPosition: "center",
               backgroundSize: "cover",
-              top: 0,
-              left: 0,
+              // top: 0,
+              // left: 0,
 
               /* Preserve aspect ratio */
-              minWidth: "100%",
-              minHeight: "100%",
+              // minWidth: "100%",
+              // minHeight: "100%",
               opacity: 0.1,
             }}
           />
