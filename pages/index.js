@@ -31,7 +31,7 @@ export default function Home() {
       <Head>
         <title>{search ? search : "Poké Search"} | Pokémon Card Manager</title>
       </Head>
-      <div className="pb-16">
+      <div className="pb-16 animate-fade-in">
         <form onSubmit={formSubmit} className="text-center">
           <input
             className="border rounded border-gray-300 mx-4 mt-8 mb-12 px-3 py-2"

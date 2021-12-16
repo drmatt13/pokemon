@@ -1,59 +1,45 @@
-import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
-import dbConnect from "../../utils/dbConnect";
-import User from "../../models/User";
+import User from "../../models/user";
 
 export default async function handler(req, res) {
   try {
-    if (req.method !== "POST") {
-      res.status(405).json({
+    let token = req.cookies.token;
+    if (!token) {
+      return res.status(401).json({
         success: false,
-        message: "Method not allowed",
+        message: "Unauthorized",
       });
     }
-
-    await dbConnect();
-
-    const { email, password } = req.body;
-
-    const user = await User.findOne({ email }).select("+password").exec();
-
+    const decoded = jwt.verify(token, process.env.JWT_SECRET);
+    if (!decoded) {
+      return res.status(401).json({
+        success: false,
+        message: "Unauthorized",
+      });
+    }
+    const user = await User.findById(decoded.id);
     if (!user) {
-      return res.status(400).json({
+      return res.status(401).json({
         success: false,
-        message: "Invalid credentials",
+        message: "Unauthorized",
       });
     }
 
-    const isMatch = await bcrypt.compare(password, user.password);
-
-    if (!isMatch) {
-      return res.status(400).json({
-        success: false,
-        message: "Invalid credentials",
-      });
-    }
-
-    const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET);
+    token = jwt.sign({ id: user._id }, process.env.JWT_SECRET);
 
     return res.status(200).json({
       success: true,
-      message: "Login successful",
+      message: "Authorized",
+      token,
       data: {
-        token,
-        user: {
-          id: user._id,
-          username: user.username,
-          email: user.email,
-          collections: user.collections,
-        },
+        user,
       },
     });
   } catch (error) {
     console.log(error);
     return res.status(500).json({
       success: false,
-      message: "Server error",
+      message: "Internal Server Error",
     });
   }
 }

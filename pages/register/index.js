@@ -70,6 +70,10 @@ const Index = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
+      if ((password.length < 8) | (password2.length < 8)) {
+        alert("password must be at least 8 characters");
+        return;
+      }
       if (password !== password2) {
         alert("Passwords do not match");
         setPasswordClass("ring ring-red-500");

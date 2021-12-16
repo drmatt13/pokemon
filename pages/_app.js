@@ -16,6 +16,14 @@ import "../styles/globals.scss";
 
 function MyApp({ Component, pageProps }) {
   const { user, setUser, loading } = useAuth();
+  const [pokemonCards, setPokemonCards] = useState({
+    // "poke-id": {
+    //   qauntity: x,
+    //   forsale: true,
+    //   favorite: false,
+    //   collection: "collection-name"
+    // }
+  });
 
   pokemon.configure({ apiKey: process.env.NEXT_PUBLIC_POKEMON_SECRET });
 
@@ -47,7 +55,16 @@ function MyApp({ Component, pageProps }) {
         />
       </Head>
 
-      <_appContext.Provider value={{ user, setUser, pokemon, mobile }}>
+      <_appContext.Provider
+        value={{
+          user,
+          setUser,
+          pokemon,
+          pokemonCards,
+          setPokemonCards,
+          mobile,
+        }}
+      >
         <div className="relative min-h-screen">
           {loading ? (
             <div className="relative z-10 h-screen w-screen flex justify-center items-center">
@@ -63,7 +80,14 @@ function MyApp({ Component, pageProps }) {
             className="fixed h-screen w-screen top-0 z-0"
             style={{
               backgroundImage: `url("AdobeStock_293831552_Editorial_Use_Only.jpeg")`,
+              position: "fixed",
               backgroundSize: "cover",
+              top: 0,
+              left: 0,
+
+              /* Preserve aspect ratio */
+              minWidth: "100%",
+              minHeight: "100%",
               opacity: 0.1,
             }}
           />

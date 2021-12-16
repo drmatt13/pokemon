@@ -23,7 +23,7 @@ const card = {
   _id: "",
   _user_id: "",
   pokemonCard: "_poke_id",
-  qauntity: x,
+  quantity: x,
   forSale: x,
   favorite: true,
   collection: "collection",

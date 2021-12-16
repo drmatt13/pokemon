@@ -45,8 +45,11 @@ const Index = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(email, password);
     try {
+      if (password.length < 8) {
+        alert("password must be at least 8 characters");
+        return;
+      }
       setLoading(true);
       const res = await fetch("/api/login", {
         method: "POST",
@@ -60,13 +63,11 @@ const Index = () => {
       });
       const json = await res.json();
       if (json.success) {
-        console.log(json.data);
         setUser(json.data.user);
         Cookies.set("token", json.data.token);
         router.push("/");
       } else {
         setLoading(false);
-        console.log(json.message);
         alert("invalid email or password");
       }
     } catch (error) {

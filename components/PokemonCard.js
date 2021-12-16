@@ -1,7 +1,11 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
+
+import _appContext from "../context/_appContext";
 
 const PokemonCard = ({ data }) => {
   const [count, setCount] = useState(0);
+
+  const { pokemon } = useContext(_appContext);
 
   return (
     <div className="relative flex flex-col text-yellow-300">
@@ -36,6 +40,9 @@ const PokemonCard = ({ data }) => {
         value={count}
         onChange={(e) => setCount(e.target.value)}
       />
+      <div className="bg-gray-400 h-10 w-10 flex justify-center items-center p-1 rounded-full shadow-2xl border-2 border-gray-500 absolute bottom-2 left-1 cursor-not-allowed">
+        <i className="fas fa-check text-gray-600" />
+      </div>
     </div>
   );
 };
